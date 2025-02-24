@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Custom Log -->
+    <virtualType name="Denal05Ad0e702ExerciseAutomaticEventObserverErrorLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="error"
+                      xsi:type="object"
+                >Denal05\Ad0e702ExerciseAutomaticEventObserver\Logger\Handler\ErrorHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Denal05Ad0e702ExerciseAutomaticEventObserverDebugLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug"
+                      xsi:type="object"
+                >Denal05\Ad0e702ExerciseAutomaticEventObserver\Logger\Handler\DebugHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Denal05\Ad0e702ExerciseAutomaticEventObserver\Observer\ConfigurePaymentIsActive">
+        <arguments>
+            <argument name="logger" xsi:type="object">Denal05Ad0e702ExerciseAutomaticEventObserverDebugLogger</argument>
+        </arguments>
+    </type>
+
+</config>
